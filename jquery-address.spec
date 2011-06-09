@@ -3,7 +3,7 @@ Summary:	jQuery Address - Deep linking for the masses
 Name:		jquery-%{plugin}
 Version:	1.4
 Release:	1
-License:	MIT / GPL
+License:	MIT / GPL v2
 Group:		Applications/WWW
 Source0:	http://www.asual.com/download/jquery.address-%{version}.zip
 # Source0-md5:	78f7773493badbab891db2d856b83700
