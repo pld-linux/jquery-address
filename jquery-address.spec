@@ -1,14 +1,17 @@
+# TODO
+# - package samples
 %define		plugin	address
 Summary:	jQuery Address - Deep linking for the masses
 Name:		jquery-%{plugin}
-Version:	1.4
+Version:	1.5
 Release:	1
 License:	MIT / GPL v2
 Group:		Applications/WWW
 Source0:	http://www.asual.com/download/jquery.address-%{version}.zip
-# Source0-md5:	78f7773493badbab891db2d856b83700
+# Source0-md5:	840abddcb168dc27bc8648e4de6133df
 URL:		http://www.asual.com/jquery/address/
 BuildRequires:	rpmbuild(macros) >= 1.268
+BuildRequires:	unzip
 Requires:	jquery >= 1.3
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -31,7 +34,10 @@ important capabilities including:
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_appdir}
-cp -p jquery.address-%{version}.min.js $RPM_BUILD_ROOT%{_appdir}/%{plugin}.js
+cp -p jquery.%{plugin}-%{version}.min.js $RPM_BUILD_ROOT%{_appdir}/%{plugin}-%{version}.min.js
+ln -s %{plugin}-%{version}.min.js $RPM_BUILD_ROOT%{_appdir}/%{plugin}.js
+cp -p jquery.%{plugin}-%{version}.js $RPM_BUILD_ROOT%{_appdir}/%{plugin}-%{version}.src.js
+ln -s %{plugin}-%{version}.src.js $RPM_BUILD_ROOT%{_appdir}/%{plugin}.src.js
 
 %clean
 rm -rf $RPM_BUILD_ROOT
